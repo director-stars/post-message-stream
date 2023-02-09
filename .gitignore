@@ -1,6 +1,5 @@
 .DS_Store
 coverage/
-dist/
 dist-test/
 
 # Logs

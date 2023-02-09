@@ -1,4 +1,4 @@
-import { isObject } from '@metamask/utils';
+
 
 export const DEDICATED_WORKER_NAME = 'dedicatedWorker';
 
@@ -17,10 +17,10 @@ export interface StreamMessage {
  * @returns Whether the `message` is a valid stream message.
  */
 export function isValidStreamMessage(
-  message: unknown,
+  message: any,
 ): message is StreamMessage {
   return (
-    isObject(message) &&
+    (Boolean(message) && typeof message === 'object' && !Array.isArray(message)) &&
     Boolean(message.data) &&
     (typeof message.data === 'number' ||
       typeof message.data === 'object' ||
